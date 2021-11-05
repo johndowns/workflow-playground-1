@@ -2,7 +2,7 @@ on:
   workflow_call:
 
 jobs:
-  job1:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
     - run: |
