@@ -7,6 +7,7 @@ on:
     secrets:
       AZURE_CREDENTIALS:
         required: true
+        
 
 jobs:
   say-hello:
