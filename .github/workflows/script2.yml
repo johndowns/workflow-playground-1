@@ -1,22 +1,26 @@
 on:
   workflow_call:
     inputs:
-      environmentType:
+      resourceGroupName:
         required: true
         type: string
     secrets:
       AZURE_CREDENTIALS:
         required: true
-        
 
 jobs:
-  say-hello:
+  deploy:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environmentType }}
+    env:
+      MyParameter: value-of-parameter
     steps:
-    - run: |
-        echo Hello ${{ inputs.environmentType }}!
-
-    - run: |
-        echo This step only runs for production deployments.
-      if: inputs.environmentType == 'Production'
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        failOnStdErr: false
+        resourceGroupName: ${{ inputs.resourceGroupName }}
+        template: ./deploy/main.bicep
+        parameters: myParameter=${{ env.MyParameter }}
