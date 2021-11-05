@@ -1,10 +1,15 @@
 on:
   workflow_dispatch:
 
+env:
+  MyVariable1: value1
+
 jobs:
-  job-test:
-    uses: johndowns/workflow-playground-1/.github/workflows/script2.yml@main
-    with:
-      resourceGroupName: GHPipeline1
-    secrets:
-      AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      MyVariable2: value2
+    steps:
+    - run: echo Hello world!
+      env:
+        MyVariable3: value3
