@@ -12,6 +12,7 @@ on:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environmentType }}
     steps:
     - run: |
         echo Hello ${{ inputs.environmentType }}!
