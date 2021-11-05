@@ -5,13 +5,13 @@ jobs:
   job-test:
     uses: johndowns/workflow-playground-1/.github/workflows/script2.yml@main
     with:
-      enviromentType: Test
+      environmentType: Test
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_Test }}
 
   job-production:
     uses: johndowns/workflow-playground-1/.github/workflows/script2.yml@main
     with:
-      enviromentType: Production
+      environmentType: Production
     secrets:
       AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_Production }}
