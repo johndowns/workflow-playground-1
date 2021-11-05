@@ -1,0 +1,6 @@
+on:
+  workflow_call:
+
+steps:
+- run: |
+    echo Hello world!

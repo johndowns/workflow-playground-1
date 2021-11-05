@@ -1,0 +1,6 @@
+on: 
+  workflow_dispatch:
+
+jobs:
+  job1:
+    uses: johndowns/workflow-playground-1/.github/workflows/script.yml@main
