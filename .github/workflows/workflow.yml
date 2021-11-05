@@ -2,5 +2,5 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  jobXXX:
     uses: johndowns/workflow-playground-1/.github/workflows/script.yml@main
